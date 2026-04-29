@@ -22,10 +22,9 @@ const App = () => {
         
         {/* Top Right Name Bar */}
         <div className="top-bar">
-          <span>JOHN DOE // LVL 50</span>
+          <span>IOANNIS CHORIATELLIS</span>
         </div>
 
-        {/* Navigation Tabs */}
         <header className="pipboy-header">
           {tabs.map((tab) => (
             <button 
@@ -43,7 +42,6 @@ const App = () => {
           {renderContent()}
         </main>
 
-        {/* Pip-Boy Bottom HUD */}
         <footer className="pipboy-footer">
           
           <div className="stat-block">
@@ -55,10 +53,10 @@ const App = () => {
           </div>
 
           <div className="stat-block">
-            <span>LEVEL 50</span>
+            <span>LEVEL 22</span>
             <div className="status-bar-container bar-long">
               {/* Level progress bar */}
-              <div className="status-bar-fill" style={{ width: '75%' }}></div>
+              <div className="status-bar-fill" style={{ width: '33%' }}></div>
             </div>
           </div>
 
@@ -77,16 +75,15 @@ const App = () => {
   );
 };
 
-/* --- Split-Screen Sub-Components --- */
 
 const AbilitiesSection = () => {
   const abilities = [
-    { name: "Strength", val: 6, desc: "Raw coding power. Determines how many Docker containers you can lift." },
-    { name: "Perception", val: 8, desc: "Crucial for code review and spotting missing semicolons." },
+    { name: "Strength", val: 10, desc: "Raw coding power. Determines how many Docker containers you can lift." },
+    { name: "Perception", val: 9, desc: "Crucial for code review and spotting missing semicolons." },
     { name: "Endurance", val: 9, desc: "Ability to survive long crunch times without caffeine." },
-    { name: "Charisma", val: 4, desc: "Useful for convincing stakeholders the bug is actually a feature." },
+    { name: "Charisma", val: 8, desc: "Useful for convincing stakeholders the bug is actually a feature." },
     { name: "Intelligence", val: 10, desc: "Dictates architecture design and algorithm optimization." },
-    { name: "Agility", val: 7, desc: "Speed of navigating Vim and navigating Agile sprints." },
+    { name: "Agility", val: 8, desc: "Speed of navigating Vim and navigating Agile sprints." },
     { name: "Luck", val: 5, desc: "Sometimes the code compiles on the first try. Who knows why?" },
   ];
 
@@ -109,8 +106,17 @@ const AbilitiesSection = () => {
         </ul>
       </div>
       <div className="right-info">
-        {/* Placeholder for the vault boy graphic */}
-        <div style={{ fontSize: '6rem', marginBottom: '1rem' }}>☻</div>
+        <img 
+          src="/pip-me.png" 
+          alt="User Profile Graphic" 
+          style={{ 
+            width: '150px', 
+            height: 'auto', 
+            marginBottom: '1.5rem',
+            opacity: 0.5,
+            filter: 'drop-shadow(0 0 10px rgba(209, 150, 21, 0.47))' 
+          }} 
+        /> 
         <p>{selected.desc}</p>
       </div>
     </div>
@@ -119,12 +125,22 @@ const AbilitiesSection = () => {
 
 const ProjectsSection = () => {
   const projects = [
-    { name: "Project_Alpha", size: "1.2 MB", details: "A high-performance React dashboard analyzing Wasteland trade routes." },
-    { name: "Vault_Tec_API", size: "450 KB", details: "Python/FastAPI backend for managing vault inhabitant data securely." },
-    { name: "PipBoy_UI", size: "3.4 MB", details: "A wearable interface concept built with Three.js and React." },
+    { name: "BlueScrape", size: "7.3 GB", details: "A high-performance market intelligence engine that aggregates news data via NewsAPI; integrated FinBERT to categorize and rank market sentiment for Fortune 500 tech stocks with rankBM25 for optimized search relevance.", link: "https://github.com/jetr00/BlueScrape" },
+    { name: "Particle Art Maker", size: "2.9 KB", details: "A real-time computer vision application using MediaPipe and OpenCV2 to map hand-tracking coordinates to dynamic particle systems, achieving low-latency rendering and interactive UI response.", link: "https://github.com/jetr00/Particle-Art-Maker" },
+    { name: "Python Search Engine", size: "7.1 KB", details: "A text-retrieval system utilizing NLTK for tokenization and stemming; implemented vector space modeling to query the CISI dataset, significantly improving precision and recall compared to basic keyword matching.", link: "https://github.com/jetr00/Python-Search-Engine" },
+    { name: "Barber Appointment App", size: "21 KB", details: "A full-stack appointment management system using Python and SQLite, featuring a Tkinter-based GUI. Designed the relational database schema to handle concurrent booking requests and automated availability tracking.", link: "https://github.com/jetr00/Barber-Appointment-App" },
+    { name: "Random Password Generator", size: "6.02 KB", details: "N/A", link: "https://github.com/jetr00/Random-Password-Generator" },
   ];
 
   const [selected, setSelected] = useState(projects[0]);
+
+  const handleExecute = (url) => {
+    if (url){
+      window.open(url, '_blank', 'noopener, noreferrer');
+    } else { 
+      alert("> ERROR: UPLINK TO PROJECT NOT FOUND.");
+    }
+  };
 
   return (
     <div className="split-layout">
@@ -142,28 +158,64 @@ const ProjectsSection = () => {
         </ul>
       </div>
       <div className="right-info">
-        <h2>{selected.name}.exe</h2>
+        <h2>{selected.name}.py</h2>
         <p>FILE SIZE: {selected.size}</p>
         <p>{selected.details}</p>
-        <button className="action-button" style={{marginTop: '1rem'}}>EXECUTE</button>
+        <button 
+        className="action-button" 
+        style={{marginTop: '1rem'}}
+        onClick={() => handleExecute(selected.link)}
+          >EXECUTE
+          </button>
       </div>
     </div>
   );
 };
 
 const MapSection = () => {
-  // Map can stay as a full-screen view, or you can split it too!
+  const externalLinks = [
+    { name: "LINKEDIN_PROFILE", url: "https://linkedin.com/in/your-profile" },
+    { name: "GITHUB_DATABASE", url: "https://github.com/your-username" }
+  ];
+
+  const handleNavigation = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
-    <div className="map-path" style={{ textAlign: 'center', marginTop: '2rem' }}>
-      <h2> USER LEARNING PATH</h2>
-      <div className="path-step">
-        <strong>TECHNICAL HIGH SCHOOL OF MYTILENE</strong>
-        <span>(2019-2022)</span>
+    <div className="map-container" style={{ textAlign: 'center', paddingTop: '1rem' }}>
+      <h2> WORLD_MAP </h2>
+      
+      {/* Education Path Section */}
+      <div className="map-path" style={{ marginBottom: '3rem' }}>
+        <div className="path-step">
+          <strong>TECHNICAL HIGH SCHOOL OF MYTILENE</strong>
+          <span>[2019 - 2022]</span>
+        </div>
+        <div className="path-arrow">↓</div>
+        <div className="path-step">
+          <strong>UNIVERSITY OF WEST ATTICA</strong>
+          <span style={{ fontSize: '1.2rem', opacity: 1.0}}>INFORMATICS AND COMPUTER ENGINEERING</span>
+          <br />
+          <span style={{ fontSize: '1.2rem', opacity: 0.8}}
+            > [2022 - 2027]
+          </span>
+        </div>
       </div>
-      <div className="path-arrow">↓</div>
-      <div className="path-step">
-        <strong>UNIVERSITY OF WEST ATTICA</strong>
-        <span>(2022-2027)</span>
+
+      <div className="connectivity-section" style={{ borderTop: '1px dashed #d19615', paddingTop: '2rem' }}>
+        <h3> EXTERNAL_UPLINKS_DETECTED:</h3>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '1rem' }}>
+          {externalLinks.map((link) => (
+            <button 
+              key={link.name}
+              className="action-button"
+              onClick={() => handleNavigation(link.url)}
+            >
+              {link.name}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -173,8 +225,10 @@ const LanguagesSection = () => {
   const languages = [
     { name: "Python", freq: "104.2 MHz", desc: "Backend scripting and data analysis protocols." },
     { name: "FastAPI", freq: "98.5 MHz", desc: "High-speed API routing broadcasts." },
-    { name: "React", freq: "101.1 MHz", desc: "Front-end UI rendering signals." },
-    { name: "JavaScript", freq: "88.0 MHz", desc: "General purpose web-wasteland frequencies." },
+    { name: "React", freq: "86.1 MHz", desc: "Front-end UI rendering signals." },
+    { name: "HTML", freq: "89.0 MHz", desc: "General purpose web-wasteland frequencies." },
+    { name: "CSS", freq: "82.4 MHz", desc: "General purpose web-wasteland frequencies." },
+    { name: "JavaScript", freq: "88.3 MHz", desc: "General purpose web-wasteland frequencies." },
   ];
 
   const [selected, setSelected] = useState(languages[0]);
