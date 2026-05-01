@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Terminal.css';
 
 const App = () => {
@@ -134,7 +134,7 @@ const ProjectsSection = () => {
 
   const [selected, setSelected] = useState(projects[0]);
 
-  const handleExecute = (url) => {
+  const handleExecute = (url : string) => {
     if (url){
       window.open(url, '_blank', 'noopener, noreferrer');
     } else { 
@@ -178,7 +178,7 @@ const MapSection = () => {
     { name: "GITHUB_DATABASE", url: "https://github.com/your-username" }
   ];
 
-  const handleNavigation = (url) => {
+  const handleNavigation = (url : string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
