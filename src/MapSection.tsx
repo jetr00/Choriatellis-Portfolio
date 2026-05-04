@@ -1,8 +1,8 @@
 
 const MapSection = () => {
   const externalLinks = [
-    { name: "LINKEDIN_PROFILE", url: "https://linkedin.com/in/your-profile" },
-    { name: "GITHUB_DATABASE", url: "https://github.com/your-username" }
+    { name: "LINKEDIN_PROFILE", url: "https://www.linkedin.com/in/ioannis-choriatellis-6b454316a/" },
+    { name: "GITHUB_DATABASE", url: "https://github.com/jetr00" }
   ];
 
   const handleNavigation = (url : string) => {
