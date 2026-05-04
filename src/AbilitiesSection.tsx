@@ -31,7 +31,7 @@ const AbilitiesSection = () => {
       </div>
       <div className="right-info">
         <img 
-          src="./public/pip-me.png" 
+          src="/public/pip-me.png" 
           alt="User Profile Graphic" 
           style={{ 
             width: '150px', 
