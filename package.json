@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "http://jetr00.github.io/ioannis-choriatellis-portfolio",
+  "homepage": "http://jetr00.github.io/choriatellis-portfolio",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
