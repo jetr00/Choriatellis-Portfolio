@@ -102,7 +102,7 @@ const AbilitiesSection = () => {
       </div>
       <div className="right-info">
         <img 
-          src="/pip-me.png" 
+          src="./pulbic/pip-me.png" 
           alt="User Profile Graphic" 
           style={{ 
             width: '150px', 
