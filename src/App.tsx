@@ -19,8 +19,7 @@ const App = () => {
     <>
       <div className="scanlines"></div>
       <div className="pipboy-container">
-        
-        {/* Top Right Name Bar */}
+
         <div className="top-bar">
           <span>IOANNIS CHORIATELLIS</span>
         </div>
@@ -37,7 +36,6 @@ const App = () => {
           ))}
         </header>
 
-        {/* Main Content Area */}
         <main className="content">
           {renderContent()}
         </main>
@@ -47,7 +45,6 @@ const App = () => {
           <div className="stat-block">
             <span>HP 100/100</span>
             <div className="status-bar-container bar-short">
-              {/* Change the width % to simulate taking damage */}
               <div className="status-bar-fill" style={{ width: '100%' }}></div>
             </div>
           </div>
@@ -55,14 +52,12 @@ const App = () => {
           <div className="stat-block">
             <span>LEVEL 22</span>
             <div className="status-bar-container bar-long">
-              {/* Level progress bar */}
               <div className="status-bar-fill" style={{ width: '33%' }}></div>
             </div>
           </div>
 
           <div className="stat-block">
             <div className="status-bar-container bar-short">
-              {/* AP is usually right-aligned in the game */}
               <div className="status-bar-fill" style={{ width: '100%' }}></div>
             </div>
             <span>AP 90/90</span>
@@ -186,7 +181,6 @@ const MapSection = () => {
     <div className="map-container" style={{ textAlign: 'center', paddingTop: '1rem' }}>
       <h2> WORLD_MAP </h2>
       
-      {/* Education Path Section */}
       <div className="map-path" style={{ marginBottom: '3rem' }}>
         <div className="path-step">
           <strong>TECHNICAL HIGH SCHOOL OF MYTILENE</strong>
